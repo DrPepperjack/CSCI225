@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "/Users/dandr/OneDrive/Documents/GitHub/CSCI225/index.html"
+            "file": "/Users/dandr/OneDrive/Documents/GitHub/DrPepperJack.github.io/CSCI225/index.html"
         }
     ]
 }
