@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+body {
+    background-image:url(img/landscape.jpg); background-size: cover;
+    color: #ffffff;
+}
+
+p {
+    color: #ffffff;
+}
+h1 {
+    color: #ffffff;
+}
+
+table{
+    border: 1px solid rgb(0, 0, 0); background-color: rgb(26, 0, 172);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
