@@ -1,0 +1,21 @@
+body {
+    background-image:url(img/landscape.jpg); background-size: cover;
+    color: #ffffff;
+}
+table, th, td {
+    border: 1px solid rgb(0, 0, 0); background-color: rgb(26, 0, 172);
+}
+{
+    text-decoration: none;
+},
+{
+    color: #10f1e6;
+}
+a:visited {
+    color: #adffff;
+}
+
+a:hover{
+    font-size: 2 em;
+    text-indent: -100px;
+}
