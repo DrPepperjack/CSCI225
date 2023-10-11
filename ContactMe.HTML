@@ -1,66 +1,125 @@
-<html>
+<!DOCTYPE html>
+
 <head>
     <title>Contact Me</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <p><b><h1 style="text-align: center;">Contact Me Homepage of D'Andre C. Lambert</b></h1></p><hr>
+</head>
 
-    <div class="Video">
-    <video src="video/Me and my brother.mp4" poster="img/Me&MyBrother.jpg" width="300" height="300" preload controls loop>Video of me and my brother running up the famouse Rocky steps.</video>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="navbar">
+                    <h1>Table of contents</h1>
+                    <ul>
+                        <h2>USC Aiken Websites</h2>
+                        <li>USC Aiken Homepage: <a href="https://www.usca.edu/" target="_blank">USC Aiken</a></li>
 
-</div>
-    <div class="Feedback">
-    <p> Please provide feedback on the website!</p>
-        <p>First Name: <input type="fname" placeholder="anonymous" name="fname" required></p>
-        <p>Last Name: <input type="lname" placeholder="anonymous" name="lname" required></p>
-        <p>Email*: <input type="email" placeholder="name@domain.com" name="mail" required></p>
+                        <li>Blackboard: <a href="http://blackboard.usca.edu/" target="_blank">USC Aiken Blackboard</a>
+                        </li>
 
-        <textarea name="feedback" cols="10" rows="10" maxlength="750">
+                        <li>Web Development Assignment Link: <a
+                                href="https://blackboard.sc.edu/ultra/courses/_1221971_1/cl/outline"
+                                target="_blank">Blackboard CSCI225</a></li>
+
+                        <li>USC Aiken Email: <a href="https://outlook.office365.com/" target="_blank">USC Aiken
+                                Email</a>
+                        </li>
+
+                        <li>USC Aiken E-Sports: <a
+                                href="https://www.usca.edu/campus-recreation-and-wellness/club-sports/esports"
+                                target="_blank">USC Aiken E-Sports</a></li>
+
+                        <li>USC Aiken Black Student Union(BSU): <a href="https://www.facebook.com/uscabsu/"
+                                target="_blank">USC Aiken BSU</a></li>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <!-- Video -->
+
+                <p><b>
+                        <h1 style="text-align: center;">Contact Me Homepage of D'Andre C. Lambert
+                    </b></h1>
+                </p>
+                <hr>
+
+                <div class="Video">
+                    <video src="video/Me and my brother.mp4" poster="img/Me&MyBrother.jpg" width="300" height="300"
+                        preload controls loop>Video of me and my brother running up the famouse Rocky steps.</video>
+                </div>
+            </div>
+
+            <!--Feedback-->
+            <form>
+        </div>
+        <div class="Feedback">
+            <p> Please provide feedback on the website!</p>
+            <p>First Name: <input type="fname" placeholder="anonymous" name="fname" required></p>
+            <p>Last Name: <input type="lname" placeholder="anonymous" name="lname" required></p>
+            <p>Email*: <input type="email" placeholder="name@domain.com" name="mail" required></p>
+
+            <textarea name="feedback" cols="10" rows="10" maxlength="750">
             (Enter your feedback here)
         </textarea>
         </div>
-    
+
         <div class="Survey">
             <form action="">
-</p>
-    
-        <p>Select your Favorite color
-            <input type="checkbox" name="colors" value="red">red
-            <input type="checkbox" name="colors" value="blue">blue
-            <input type="checkbox" name="colors" value="green">green
-            <input type="checkbox" name="colors" value="yello">yellow
-            <input type="checkbox" name="colors" value="purple">purple
-            <input type="checkbox" name="colors" value="black">black
-            <input type="checkbox" name="colors" value="white">white
+                </p>
 
-</p>
+                <p>Select your Favorite color
+                    <input type="checkbox" name="colors" value="red">red
+                    <input type="checkbox" name="colors" value="blue">blue
+                    <input type="checkbox" name="colors" value="green">green
+                    <input type="checkbox" name="colors" value="yello">yellow
+                    <input type="checkbox" name="colors" value="purple">purple
+                    <input type="checkbox" name="colors" value="black">black
+                    <input type="checkbox" name="colors" value="white">white
 
-    <p>Select your Favorite browser:</p>
-    <select name="browser" size="4" multiple>
-        <option value="Firefox">Firefox</option>
-        <option value="Safari">Safari</option>
-        <option value="Edge">Edge</option>
-        <option value="Chrome">Chrome</option>
-        <option value="Opera">Opera</option>
-    </select>
-    </p>
+                </p>
 
-        <p>What is your favoirte housepet?</p>
-        <p> <input type="housepet" name="animal" value="" checked>Ex: Mine are cats!</p>
+                <p>Select your Favorite browser:</p>
+                <select name="browser" size="4" multiple>
+                    <option value="Firefox">Firefox</option>
+                    <option value="Safari">Safari</option>
+                    <option value="Edge">Edge</option>
+                    <option value="Chrome">Chrome</option>
+                    <option value="Opera">Opera</option>
+                </select>
+                </p>
 
-        <p>Would you recommend my site?</p>
-        <br><input type="radio" name = "ans" value="yes"> Yes
-        <br><input type="radio" name = "ans" value="no"> No
-    
-        <p>Rate the "Contact Me" site! 0<input type="range" min="0" max="10" name="score">10</p>
+                <p>What is your favoirte housepet?</p>
+                <p> <input type="housepet" name="animal" value="" checked>Ex: Mine are cats!</p>
 
-        <textarea name="comment" cols="15" rows="10" maxlength="500">
+                <p>Would you recommend my site?</p>
+                <br><input type="radio" name="ans" value="yes"> Yes
+                <br><input type="radio" name="ans" value="no"> No
+
+                <p>Rate the "Contact Me" site! 0<input type="range" min="0" max="10" name="score">10</p>
+
+                <textarea name="comment" cols="15" rows="10" maxlength="500">
             Please provide any final comments here
         </textarea>
 
-        <p><input type="submit" value="Submit your survey?"></p>
-        <p><input type="reset" value="Reset the survey?"></p>
-    </form>
-    </div>
+                <p><input type="submit" value="Submit your survey?"></p>
+                <p><input type="reset" value="Reset the survey?"></p>
+            </form>
+        </div>
+        <!-- Bootstrap Java-Script File-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</body>
+</div>
+</head>
 
-    </head>
-    </html>
+</html>
