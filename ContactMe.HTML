@@ -46,12 +46,15 @@
 
         <div class="row">
             <div class="col">
+                <p>USC Aiken Virtual Tour</p>
 
-                <!-- Video -->
-                <div class="Video">
-                    <video width="300" height="300" src="video/Me and my brother.mp4" poster="img/Me&MyBrother.jpg"
-                        preload controls loop>Video of me and my brother running up the famouse Rocky steps.</video>
-                </div>
+                <p>
+                    <!-- video-->
+                    <iframe class="border rounded" width="400" height="250" src="https://www.youtube.com/embed/_MMga99JDxI?si=oINbMgXA6Yq3TUZd"
+                        title="Youtube player"></iframe>
+                </p>
+            </div>
+        </div>
             </div>
 
             <!--Feedback-->
@@ -64,7 +67,7 @@
                 <p>Last Name: <input type="lname" placeholder="anonymous" name="lname" required></p>
                 <p>Email*: <input type="email" placeholder="name@domain.com" name="mail" required></p>
 
-                <textarea name="feedback" cols="10" rows="10" maxlength="750">
+                <textarea name="feedback" cols="10" rows="5" maxlength="750">
             (Enter your feedback here)
         </textarea>
         </div>
@@ -96,19 +99,18 @@
 
                 <p>What is your favoirte housepet?</p>
                 <p> <input type="housepet" name="animal" value="" checked>Ex: Mine are cats!</p>
-
+                    <div class="form-group">
                 <p>Would you recommend my site?</p>
                 <br><input type="radio" name="ans" value="yes"> Yes
                 <br><input type="radio" name="ans" value="no"> No
 
                 <p>Rate the "Contact Me" site! 0<input type="range" min="0" max="10" name="score">10</p>
+                    </div>
 
-                <textarea name="comment" cols="15" rows="10" maxlength="500">
-            Please provide any final comments here
-        </textarea>
-
+                <!--Submit-->
                 <p><input type="submit" value="Submit your survey?"></p>
                 <p><input type="reset" value="Reset the survey?"></p>
+            
             </form>
         </div>
     </div>
