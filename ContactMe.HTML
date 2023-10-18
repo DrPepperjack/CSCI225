@@ -5,114 +5,93 @@
     <title>Contact Me</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS-->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <a class="navbar-brand" href="#">Contact Me</a>
+    </nav>
+    <!-- Rest of your content -->
+</body>
+<!-- Bootstrap JavaScript File -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="navbar">
-                    <ul class="navbar-nav navbar-expand-lg navbar-light bg-dark">
-                        <li class="nav-item"><a href="https://www.usca.edu/">USC Aiken</a></li>
+</html>
 
-                        <li class="nav-item"><a class="nav-link text-white" href="http://blackboard.usca.edu/" target="_blank">USC Aiken Blackboard</a>
-                        </li>
 
-                        <li class="nav-item"><a href="https://blackboard.sc.edu/ultra/courses/_1221971_1/cl/outline">Blackboard CSCI225</a></li>
 
-                        <li class="nav-item"><a class="nav-link text-white" href="https://outlook.office365.com/">USC Aiken Email</a>
-                        </li>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form name="feedback" class="form-group">
+                <p>Please provide feedback on the website!</p>
+                <p>First Name: <input type="text" class="form-control" placeholder="Anonymous" name="fname" required>
+                </p>
+                <p>Last Name: <input type="text" class="form-control" placeholder="Anonymous" name="lname" required></p>
+                <p>Email*: <input type="email" class="form-control" placeholder="name@domain.com" name="mail" required>
+                </p>
+                <small class="form-text text-muted">Your password …</small>
+                <textarea name="feedback" class="form-control" rows="5" maxlength="750"
+                    placeholder="(Enter your feedback here)"></textarea>
+        </div>
 
-                        <li class="nav-item">USC Aiken E-Sports: <a class="nav-link text-white"
-                                href="https://www.usca.edu/campus-recreation-and-wellness/club-sports/esports"
-                                target="_blank">USC Aiken E-Sports</a></li>
+        <div class="col-md-6">
+            <!-- video-->
+            <iframe class="border rounded" width="400" height="250"
+                src="https://www.youtube.com/embed/_MMga99JDxI?si=oINbMgXA6Yq3TUZd" title="Youtube player"></iframe>
+        </div>
+    </div>
 
-                        <li class="nav-item">USC Aiken Black Student Union(BSU): <a class="nav-link text-white"
-                                href="https://www.facebook.com/uscabsu/" target="_blank">USC Aiken BSU</a></li>
-                </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Select your Favorite color</p>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="colors" value="red" id="colorRed">
+                <label class="form-check-label" for="colorRed">Red</label>
             </div>
-        </div>
+            <!-- Repeat for other colors -->
 
-        <div class="row">
-            <div class="col">
-                <p>USC Aiken Virtual Tour</p>
+            <p>Select your Favorite browser:</p>
+            <select class="form-control" name="browser" size="4" multiple>
+                <option value="Firefox">Firefox</option>
+                <option value="Safari">Safari</option>
+                <option value="Edge">Edge</option>
+                <option value="Chrome">Chrome</option>
+                <option value="Opera">Opera</option>
+            </select>
 
-                <p>
-                    <!-- video-->
-                    <iframe class="border rounded" width="400" height="250" src="https://www.youtube.com/embed/_MMga99JDxI?si=oINbMgXA6Yq3TUZd"
-                        title="Youtube player"></iframe>
-                </p>
+            <p>What is your favorite house pet?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="animal" value="cats" id="animalCats" checked>
+                <label class="form-check-label" for="animalCats">Cats</label>
+
+                <input class="form-check-input" type="radio" name="animal" value="dogs" id="animalDogs">
+                <label class="form-check-label" for="animalDogs">Dogs</label>
+
+                <input class="form-check-input" type="radio" name="animal" value="birds" id="animalBirds">
+                <label class="form-check-label" for="animalBirds">Birds</label>
+
+                <input class="form-check-input" type="radio" name="animal" value="other" id="animalOther">
+                <label class="form-check-label" for="animalOther">Other</label>
             </div>
-        </div>
+
+            <p>Would you recommend my site?</p>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="ans" value="yes" id="recommendYes">
+                <label class="form-check-label" for="recommendYes">Yes</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="ans" value="no" id="recommendNo">
+                <label class="form-check-label" for="recommendNo">No</label>
             </div>
 
-            <!--Feedback-->
-            <form>
-        </div>
-        <div class="col">
-            <form name="feedback">
-                <p> Please provide feedback on the website!</p>
-                <p>First Name: <input type="fname" placeholder="anonymous" name="fname" required></p>
-                <p>Last Name: <input type="lname" placeholder="anonymous" name="lname" required></p>
-                <p>Email*: <input type="email" placeholder="name@domain.com" name="mail" required></p>
-
-                <textarea name="feedback" cols="10" rows="5" maxlength="750">
-            (Enter your feedback here)
-        </textarea>
-        </div>
-
-        <div class="Survey">
-            <form action="">
-                </p>
-
-                <p>Select your Favorite color
-                    <input type="checkbox" name="colors" value="red">red
-                    <input type="checkbox" name="colors" value="blue">blue
-                    <input type="checkbox" name="colors" value="green">green
-                    <input type="checkbox" name="colors" value="yello">yellow
-                    <input type="checkbox" name="colors" value="purple">purple
-                    <input type="checkbox" name="colors" value="black">black
-                    <input type="checkbox" name="colors" value="white">white
-
-                </p>
-
-                <p>Select your Favorite browser:</p>
-                <select name="browser" size="4" multiple>
-                    <option value="Firefox">Firefox</option>
-                    <option value="Safari">Safari</option>
-                    <option value="Edge">Edge</option>
-                    <option value="Chrome">Chrome</option>
-                    <option value="Opera">Opera</option>
-                </select>
-                </p>
-
-                <p>What is your favoirte housepet?</p>
-                <p> <input type="housepet" name="animal" value="" checked>Ex: Mine are cats!</p>
-                    <div class="form-group">
-                <p>Would you recommend my site?</p>
-                <br><input type="radio" name="ans" value="yes"> Yes
-                <br><input type="radio" name="ans" value="no"> No
-
-                <p>Rate the "Contact Me" site! 0<input type="range" min="0" max="10" name="score">10</p>
-                    </div>
-
-                <!--Submit-->
-                <p><input type="submit" value="Submit your survey?"></p>
-                <p><input type="reset" value="Reset the survey?"></p>
-            
-            </form>
+            <p>Rate the "Contact Me" site! 0<input type="range" class="form-range" min="0" max="10" name="score">10</p>
         </div>
     </div>
 </div>
-        <!-- Bootstrap Java-Script File-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-
-</body>
-</html>
