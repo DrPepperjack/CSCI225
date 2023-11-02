@@ -4,14 +4,10 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
-
-
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Open powerbill.html",
-            "file": "${workspaceFolder}/powerbill.html"
-        }
-    ]
+{
+    "type": "chrome",
+    "request": "launch",
+    "name": "Open index.html",
+    "file": "${workspaceFolder}/index.html"
 }
+]
