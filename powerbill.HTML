@@ -66,23 +66,31 @@
 
 <body>
     <h1>Georgia Power Bill Calculator</h1>
+    <p> The power bill calculator will provide a detailed total based off of users supplied
+        information about their household. Should the users bill be over 500.00 dollars, the
+        calculator will provide a link to Georgia Power's website to help the user find ways to
+        manage and reduce their power bill.
+    </p>
     <form id="calculator-form">
-        <label for="monthly-usage">Monthly Usage in your household (kWh):</label>
-        <input type="number" id="monthly-usage" required>
+        <fieldset>
+            <legend>Power Bill Calculator</legend>
 
-        <label for="days-for-bill">Number of Days for current billing period:</label>
-        <input type="number" id="days-for-bill" required>
+            <label for="monthly-usage">Monthly Usage in your household (kWh):</label>
+            <input type="number" id="monthly-usage" name="monthlyUsage" min="0" required>
 
-        <label for="inside-city">Is your residence within City Limits:</label>
-        <input type="checkbox" id="inside-city">
+            <label for="days-for-bill">Number of Days for current billing period:</label>
+            <input type="number" id="days-for-bill" name="billingDays" min="0" required>
 
-        <label for="summer-winter">Is it currently a Summer or Winter:</label>
-        <select id="summer-winter">
-            <option value="Summer">Summer</option>
-            <option value="Winter">Winter</option>
-        </select>
+            <label for="inside-city">Is your residence within City Limits:</label>
+            <input type="checkbox" id="inside-city" name="cityResidence">
 
-        <label for="tax-rate">Tax Rate (%):</label>
+            <label for="summer-winter">Is it currently a Summer or Winter:</label>
+            <select id="summer-winter" name="season">
+                <option value="summer">Summer</option>
+                <option value="winter">Winter</option>
+            </select>
+        </fieldset>
+    </form>        <label for="tax-rate">Tax Rate (%):</label>
         <input type="number" id="tax-rate" required>
 
         <button type="button" onclick="calculateBill()">Calculate</button>
