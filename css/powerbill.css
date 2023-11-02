@@ -1,5 +1,41 @@
-    .calculator {
-        border: 1px solid #077203; /* 1px border around the calculator */
-        border-radius: 16px; /* 8px border radius for rounded edges */
-        padding: 32px; /* Add some padding for spacing */
-    }
+/* Add CSS for better design */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0;
+    padding: 20px;
+    border: 5px solid #0074d9;
+    background-image:
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+}
+
+.right-side {
+    float: right;
+}
+
+.calculator {
+    float: left;
+}
+
+button {
+    background-color: #0074d9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#results {
+    margin-top: 20px;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Electricity Billing Calculator</title>
     <style>
@@ -7,9 +8,9 @@
         body {
             font-family: Arial, sans-serif;
             max-width: 400px;
-            margin: 0; /* Moved to the left of the page */
+            margin: 0;
             padding: 20px;
-            border: 5px solid #0074d9; /* Add blue-colored barrier */
+            border: 5px solid #0074d9;
         }
 
         label {
@@ -21,15 +22,15 @@
             width: 100%;
             padding: 5px;
             margin-bottom: 10px;
-            background-color: #f0f0f0; /* Change the background for input of image later on */
+            background-color: #f0f0f0;
         }
 
         .right-side {
-            float: right; /* Align to the right side of the page */
+            float: right;
         }
 
         .calculator {
-            float: left; /* Move the calculator to the left side */
+            float: left;
         }
 
         button {
@@ -45,32 +46,33 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Electricity Billing Calculator</h1>
+    <div class="calculator">
+        <form class="calculator">
+            <label for="usage">Monthly Usage (kWh): </label>
+            <input type="text" id="usage" placeholder="Enter your monthly usage">
 
-    <form class="calculator"> <!-- Add a class for better alignment -->
-        <label for="usage">Monthly Usage (kWh): </label>
-        <input type="text" id="usage" placeholder="Enter your monthly usage">
+            <label for="rate">Rate per kWh: $</label>
+            <input type="text" id="rate" placeholder="Enter the rate per kWh">
 
-        <label for="rate">Rate per kWh: $</label>
-        <input type="text" id="rate" placeholder="Enter the rate per kWh">
+            <label for="days">Number of days for the current billing period: </label>
+            <input type="text" id="days" placeholder="Enter the number of days">
 
-        <label for="days">Number of days for the current billing period: </label>
-        <input type="text" id="days" placeholder="Enter the number of days">
+            <label for="cityLimits">Do you live within city limits?</label>
+            <input type="checkbox" id="cityLimits">
 
-        <label for="cityLimits">Do you live within city limits?</label>
-        <input type="checkbox" id="cityLimits">
+            <label for="summerMonth">Is it a summer month?</label>
+            <input type="checkbox" id="summerMonth">
 
-        <label for="summerMonth">Is it a summer month?</label>
-        <input type="checkbox" id="summerMonth">
+            <label for="salesTax">Sales Tax Percentage (%): </label>
+            <input type="text" id="salesTax" placeholder="Enter the sales tax percentage">
 
-        <label for="salesTax">Sales Tax Percentage (%): </label>
-        <input type="text" id="salesTax" placeholder="Enter the sales tax percentage">
-
-        <button type="button" onclick="calculateBill()">Calculate</button>
-    </form>
-
-    <div class="right-side" id="results"> <!-- Move the calculated part to the right side -->
+            <button type="button" onclick="calculateBill()">Calculate</button>
+        </form>
+    </div>
+    <div class="right-side" id="results">
     </div>
 
     <script>
@@ -109,4 +111,5 @@
         }
     </script>
 </body>
+
 </html>
