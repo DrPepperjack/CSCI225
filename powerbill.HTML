@@ -2,15 +2,22 @@
 <html>
 
 <head>
-    <title>Electricity Billing Calculator</title>
+    <title>Georgia Power Bill Calculator</title>
     <style>
-        /* Add CSS for better design */
         body {
             font-family: Arial, sans-serif;
             max-width: 400px;
-            margin: 0;
+            margin: 0 auto;
             padding: 20px;
             border: 5px solid #0074d9;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
         }
 
         label {
@@ -18,19 +25,15 @@
             margin-bottom: 5px;
         }
 
-        input[type="text"] {
+        input[type="number"],
+        select {
             width: 100%;
             padding: 5px;
             margin-bottom: 10px;
-            background-color: #f0f0f0;
         }
 
-        .right-side {
-            float: right;
-        }
-
-        .calculator {
-            float: left;
+        input[type="checkbox"] {
+            margin-top: 5px;
         }
 
         button {
@@ -41,72 +44,101 @@
             cursor: pointer;
         }
 
-        #results {
+        #result-container {
+            display: none;
             margin-top: 20px;
+        }
+
+        #bill-details {
+            list-style: none;
+            padding: 0;
+        }
+
+        #bill-details li {
+            margin-bottom: 10px;
+        }
+
+        #bill-details span {
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
-    <h1>Electricity Billing Calculator</h1>
-    <div class="calculator">
-        <form class="calculator">
-            <label for="usage">Monthly Usage (kWh): </label>
-            <input type="text" id="usage" placeholder="Enter your monthly usage">
+    <h1>Georgia Power Bill Calculator</h1>
+    <form id="calculator-form">
+        <label for="monthly-usage">Monthly Usage in your household (kWh):</label>
+        <input type="number" id="monthly-usage" required>
 
-            <label for="rate">Rate per kWh: $</label>
-            <input type="text" id="rate" placeholder="Enter the rate per kWh">
+        <label for="days-for-bill">Number of Days for current billing period:</label>
+        <input type="number" id="days-for-bill" required>
 
-            <label for="days">Number of days for the current billing period: </label>
-            <input type="text" id="days" placeholder="Enter the number of days">
+        <label for="inside-city">Is your residence within City Limits:</label>
+        <input type="checkbox" id="inside-city">
 
-            <label for="cityLimits">Do you live within city limits?</label>
-            <input type="checkbox" id="cityLimits">
+        <label for="summer-winter">Is it currently a Summer or Winter:</label>
+        <select id="summer-winter">
+            <option value="Summer">Summer</option>
+            <option value="Winter">Winter</option>
+        </select>
 
-            <label for="summerMonth">Is it a summer month?</label>
-            <input type="checkbox" id="summerMonth">
+        <label for="tax-rate">Tax Rate (%):</label>
+        <input type="number" id="tax-rate" required>
 
-            <label for="salesTax">Sales Tax Percentage (%): </label>
-            <input type="text" id="salesTax" placeholder="Enter the sales tax percentage">
-
-            <button type="button" onclick="calculateBill()">Calculate</button>
-        </form>
+        <button type="button" onclick="calculateBill()">Calculate</button>
+    </form>
+    <div id="result-container">
+        <h2>Monthly Power Bill Summary</h2>
+        <ul id="bill-details">
+            <li><b>Base Charge:</b> $<span id="base-charge"></span></li>
+            <li><b>Fuel Cost Rider:</b> $<span id="fuel-cost-rider"></span></li>
+            <li><b>Demand Side Management Residential Rider:</b> $<span id="demand-side-management"></span></li>
+            <li><b>Nuclear Construction Cost Recovery Rider:</b> $<span id="nuclear-construction"></span></li>
+            <li><b>Environmental Compliance Cost Recovery Rider:</b> $<span id="environmental-compliance"></span></li>
+            <li><b>Total Revenue:</b> $<span id="total-revenue"></span></li>
+            <li><b>Franchise Fee:</b> $<span id="franchise-fee"></span></li>
+            <li><b>Total (before tax):</b> $<span id="total-before-tax"></span></li>
+        </ul>
     </div>
-    <div class="right-side" id="results">
-    </div>
-
     <script>
         function calculateBill() {
-            const usage = parseFloat(document.getElementById("usage").value);
-            const rate = parseFloat(document.getElementById("rate").value);
-            const days = parseFloat(document.getElementById("days").value);
-            const cityLimits = document.getElementById("cityLimits").checked;
-            const summerMonth = document.getElementById("summerMonth").checked;
-            const salesTax = parseFloat(document.getElementById("salesTax").value);
+            const monthlyUsage = parseFloat(document.getElementById("monthly-usage").value);
+            const daysForBill = parseFloat(document.getElementById("days-for-bill").value);
+            const insideCity = document.getElementById("inside-city").checked;
+            const summerOrWinter = document.getElementById("summer-winter").value;
+            const taxRate = parseFloat(document.getElementById("tax-rate").value);
 
-            if (!isNaN(usage) && !isNaN(rate) && !isNaN(days) && !isNaN(salesTax)) {
-                let totalCost = usage * rate;
+            const baseCharge = 46.03 * daysForBill;
 
-                if (summerMonth) {
-                    totalCost *= 1.1;
-                }
-
-                if (cityLimits) {
-                    totalCost *= 1.05;
-                }
-
-                const taxAmount = (totalCost * salesTax) / 100;
-                totalCost += taxAmount;
-
-                const taxDetails = `<br>1. Total cost before tax: $${(usage * rate).toFixed(2)}`;
-                const taxTotalDetails = `<br>2. Tax total: $${taxAmount.toFixed(2)}`;
-                const totalWithTaxDetails = `<br>3. Total with tax: $${totalCost.toFixed(2)}`;
-                const dailyCost = totalCost / days;
-
-                const details = `Monthly Usage: ${usage} kWh<br>Rate per kWh: $${rate}${taxDetails}${taxTotalDetails}${totalWithTaxDetails}<br>Daily Cost: $${dailyCost.toFixed(2)}`;
-                document.getElementById("results").innerHTML = details;
+            let fuelCostRider;
+            if (summerOrWinter === "Summer") {
+                fuelCostRider = 0.045876;
             } else {
-                document.getElementById("results").innerHTML = "Please enter valid numbers for usage, rate, days, and sales tax.";
+                fuelCostRider = 0.042859;
+            }
+
+            const demandSideManagement = baseCharge * 0.015989;
+            const nuclearConstruction = baseCharge * 0.041562;
+            const environmentalCompliance = baseCharge * 0.162813;
+
+            const totalRevenue = baseCharge + fuelCostRider;
+            const franchiseFee = insideCity ? (totalRevenue * 0.030674) : (totalRevenue * 0.011839);
+            const totalBeforeTax = totalRevenue + franchiseFee;
+
+            const resultContainer = document.getElementById("result-container");
+            resultContainer.style.display = "block";
+
+            document.getElementById("base-charge").textContent = baseCharge.toFixed(2);
+            document.getElementById("fuel-cost-rider").textContent = fuelCostRider.toFixed(2);
+            document.getElementById("demand-side-management").textContent = demandSideManagement.toFixed(2);
+            document.getElementById("nuclear-construction").textContent = nuclearConstruction.toFixed(2);
+            document.getElementById("environmental-compliance").textContent = environmentalCompliance.toFixed(2);
+            document.getElementById("total-revenue").textContent = totalRevenue.toFixed(2);
+            document.getElementById("franchise-fee").textContent = franchiseFee.toFixed(2);
+            document.getElementById("total-before-tax").textContent = totalBeforeTax.toFixed(2);
+
+            if (totalBeforeTax > 500) {
+                window.open("https://www.georgiapower.com/residential/save-money-and-energy/products-programs.html", "_blank");
             }
         }
     </script>
