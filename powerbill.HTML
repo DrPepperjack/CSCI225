@@ -1,43 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Power Bill Calculator</title>
+    <title>Electricity Billing Calculator</title>
     <style>
+        /* Add CSS for better design */
         body {
             font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 0; /* Moved to the left of the page */
+            padding: 20px;
+            border: 5px solid #0074d9; /* Add blue-colored barrier */
         }
-        .calculator {
-            width: 300px;
-            margin: 0 auto;
-        }
+
         label {
             display: block;
-            margin: 10px 0;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0; /* Change the background for input of image later on */
+        }
+
+        .right-side {
+            float: right; /* Align to the right side of the page */
+        }
+
+        .calculator {
+            float: left; /* Move the calculator to the left side */
+        }
+
+        button {
+            background-color: #0074d9;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #results {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="calculator">
-        <h1>Aiken Power Bill Calculator</h1>
-        <label for="usage">Monthly Power Usage (kWh):</label>
-        <input type="number" id="usage">
-        <label for="rate">Rate per kWh ($):</label>
-        <input type="number" id="rate">
-        <button onclick="calculateBill()">Calculate</button>
-        <div id="results"></div>
+    <h1>Electricity Billing Calculator</h1>
+
+    <form class="calculator"> <!-- Add a class for better alignment -->
+        <label for="usage">Monthly Usage (kWh): </label>
+        <input type="text" id="usage" placeholder="Enter your monthly usage">
+
+        <label for="rate">Rate per kWh: $</label>
+        <input type="text" id="rate" placeholder="Enter the rate per kWh">
+
+        <label for="days">Number of days for the current billing period: </label>
+        <input type="text" id="days" placeholder="Enter the number of days">
+
+        <label for="cityLimits">Do you live within city limits?</label>
+        <input type="checkbox" id="cityLimits">
+
+        <label for="summerMonth">Is it a summer month?</label>
+        <input type="checkbox" id="summerMonth">
+
+        <label for="salesTax">Sales Tax Percentage (%): </label>
+        <input type="text" id="salesTax" placeholder="Enter the sales tax percentage">
+
+        <button type="button" onclick="calculateBill()">Calculate</button>
+    </form>
+
+    <div class="right-side" id="results"> <!-- Move the calculated part to the right side -->
     </div>
 
     <script>
         function calculateBill() {
             const usage = parseFloat(document.getElementById("usage").value);
             const rate = parseFloat(document.getElementById("rate").value);
+            const days = parseFloat(document.getElementById("days").value);
+            const cityLimits = document.getElementById("cityLimits").checked;
+            const summerMonth = document.getElementById("summerMonth").checked;
+            const salesTax = parseFloat(document.getElementById("salesTax").value);
 
-            if (!isNaN(usage) && !isNaN(rate)) {
-                const totalCost = usage * rate;
-                const details = `Monthly Usage: ${usage} kWh<br>Rate per kWh: $${rate}<br>Total Cost: $${totalCost.toFixed(2)}`;
+            if (!isNaN(usage) && !isNaN(rate) && !isNaN(days) && !isNaN(salesTax)) {
+                let totalCost = usage * rate;
+
+                if (summerMonth) {
+                    totalCost *= 1.1;
+                }
+
+                if (cityLimits) {
+                    totalCost *= 1.05;
+                }
+
+                const taxAmount = (totalCost * salesTax) / 100;
+                totalCost += taxAmount;
+
+                const taxDetails = `<br>1. Total cost before tax: $${(usage * rate).toFixed(2)}`;
+                const taxTotalDetails = `<br>2. Tax total: $${taxAmount.toFixed(2)}`;
+                const totalWithTaxDetails = `<br>3. Total with tax: $${totalCost.toFixed(2)}`;
+                const dailyCost = totalCost / days;
+
+                const details = `Monthly Usage: ${usage} kWh<br>Rate per kWh: $${rate}${taxDetails}${taxTotalDetails}${totalWithTaxDetails}<br>Daily Cost: $${dailyCost.toFixed(2)}`;
                 document.getElementById("results").innerHTML = details;
             } else {
-                document.getElementById("results").innerHTML = "Please enter valid numbers for usage and rate.";
+                document.getElementById("results").innerHTML = "Please enter valid numbers for usage, rate, days, and sales tax.";
             }
         }
     </script>

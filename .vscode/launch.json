@@ -6,11 +6,12 @@
     "configurations": [
 
 
+
         {
             "type": "chrome",
             "request": "launch",
             "name": "Open powerbill.html",
-            "file": "${workspaceFolder}/ContactMe.html"
+            "file": "${workspaceFolder}/powerbill.html"
         }
     ]
 }

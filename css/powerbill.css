@@ -1,0 +1,5 @@
+    .calculator {
+        border: 1px solid #077203; /* 1px border around the calculator */
+        border-radius: 16px; /* 8px border radius for rounded edges */
+        padding: 32px; /* Add some padding for spacing */
+    }
