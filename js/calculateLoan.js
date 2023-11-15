@@ -1,5 +1,3 @@
-// script.js
-
 function calculateLoan() {
     // Read inputs
     let loanAmount = parseFloat(document.getElementById('loanAmount').value);
