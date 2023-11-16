@@ -1,11 +1,12 @@
-/* Add CSS for better design */
+/* styles.css */
+
 body {
     font-family: Arial, sans-serif;
-    max-width: 400px;
-    margin: 0;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
     border: 5px solid #0074d9;
-    background-image:
+    background: #fff;
 }
 
 label {
@@ -13,19 +14,11 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"] {
+input[type="number"] {
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
     background-color: #f0f0f0;
-}
-
-.right-side {
-    float: right;
-}
-
-.calculator {
-    float: left;
 }
 
 button {

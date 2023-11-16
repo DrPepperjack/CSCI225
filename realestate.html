@@ -6,6 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Company</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="calculateLoan.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 5px solid #0074d9;
+            background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
+            background-size: cover;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            float: left;
+        }
+
+        button {
+            background-color: #0074d9;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,33 +76,27 @@
         </nav>
     </header>
 
-    <main>
-        <!-- Loan Calculator Section -->
-        <section id="loanCalculator">
-            <h2>Loan Calculator</h2>
-            <form id="calculatorForm">
-                <label for="loanAmount">Loan Amount:</label>
-                <input type="number" id="loanAmount" required>
+    <!-- Loan Calculator Section -->
+    <section id="loanCalculator" class="calculator">
+        <h2>Loan Calculator</h2>
+        <form id="calculatorForm">
+            <label for="loanAmount">Loan Amount:</label>
+            <input type="number" id="loanAmount" required>
 
-                <label for="interestRate">Interest Rate (annual):</label>
-                <input type="number" id="interestRate" step="0.01" required>
+            <label for="interestRate">Interest Rate (annual):</label>
+            <input type="number" id="interestRate" step="0.01" required>
 
-                <label for="loanTerm">Loan Term (in Years):</label>
-                <input type="number" id="loanTerm" required>
+            <label for="loanTerm">Loan Term (in Years):</label>
+            <input type="number" id="loanTerm" required>
 
-                <label for="startYear">Start Year:</label>
-                <input type="number" id="startYear" required>
+            <label for="startYear">Start Year:</label>
+            <input type="number" id="startYear" required>
 
-                <script src="calculateLoan.js"></script>
-            </form>
+            <button type="button" onclick="calculateLoan()">Calculate</button>
+        </form>
 
-            <div id="result">
-                <!-- Result will be displayed here -->
-            </div>
-        </section>
-    </main>
-
+        <div id="result"></div>
+    </section>
 </body>
-<script src="calculateLoan.js"></script>
 
 </html>

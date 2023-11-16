@@ -1,3 +1,5 @@
+// calculateLoan.js
+
 function calculateLoan() {
     // Read inputs
     let loanAmount = parseFloat(document.getElementById('loanAmount').value);
@@ -16,23 +18,23 @@ function calculateLoan() {
     let monthlyPayment = (loanAmount * monthlyRate * interestRate) / (monthlyRate - 1);
 
     // Generate and display amortization schedule
-    let result = document.getElementById('result');
-    result.innerHTML = `<h3>Monthly Payment: ${monthlyPayment.toFixed(2)}</h3>`;
+    let results = document.getElementById('results');
+    results.innerHTML = '<h3>Amortization Schedule</h3>';
+    results.innerHTML += '<table border="1">';
+    results.innerHTML += '<tr><th>Year</th><th>Month</th><th>Interest</th><th>Principal</th><th>Balance</th></tr>';
 
-    for (let year = 0; year < loanTerm; year++) {
-        result.innerHTML += `<h4>Year ${startYear + year}</h4>`;
-        result.innerHTML += '<table border="1">';
-        result.innerHTML += '<tr><th>Month</th><th>Balance</th><th>Interest Paid</th><th>Principal Paid</th></tr>';
+    let loanBalance = loanAmount;
 
+    for (let year = 0; year < 10; year++) {
         for (let month = 1; month <= 12; month++) {
             let monthNumber = year * 12 + month;
-            let monthlyInterest = loanAmount * interestRate;
+            let monthlyInterest = loanBalance * interestRate;
             let principalPaid = monthlyPayment - monthlyInterest;
-            loanAmount -= principalPaid;
+            loanBalance -= principalPaid;
 
-            result.innerHTML += `<tr><td>${monthNumber}</td><td>${loanAmount.toFixed(2)}</td><td>${monthlyInterest.toFixed(2)}</td><td>${principalPaid.toFixed(2)}</td></tr>`;
+            results.innerHTML += `<tr><td>${startYear + year}</td><td>${monthNumber}</td><td>${monthlyInterest.toFixed(2)}</td><td>${principalPaid.toFixed(2)}</td><td>${loanBalance.toFixed(2)}</td></tr>`;
         }
-
-        result.innerHTML += '</table>';
     }
+
+    results.innerHTML += '</table>';
 }
