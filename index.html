@@ -1,42 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <link rel="stylesheet" href="css/home.css">
-    <title>CSCI225 Homepage of D'Andre C. Lambert</title>
+    <h1 style="text-align:center;">CSCI225 Homepage of D'Andre C. Lambert</h1>    <style>
+        /* Add custom CSS for the blog style */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin-bottom: 10px;
+        }
+
+        .Introduction {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .Introduction img {
+            float: right;
+            width: 250px;
+            height: 250px;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            border: 4px solid #333;
+        }
+
+        .Assignment,
+        .Portfolio,
+        .address,
+        .Schedule {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Additional styling for specific elements can be added as needed */
+
+        /* Media query for responsiveness */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: row;
+            }
+
+            .navbar ul {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .navbar li {
+                margin-bottom: 0;
+                margin-right: 15px;
+            }
+
+            .Introduction img {
+                float: none;
+                margin: 0 auto 20px;
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1 style="text-align:center;">CSCI225 Homepage of D'Andre C. Lambert</h1>
-    <hr>
+    <header>
+        <h1>D'Andre's Main Page</h1>
+    </header>
 
     <div class="navbar">
-        <h1>Table of contents</h1>
         <ul>
-            <h2>USC Aiken Websites</h2>
-            <li>USC Aiken Homepage: <a href="https://www.usca.edu/" target="_blank">USC Aiken</a></li>
-            <li>Blackboard: <a href="http://blackboard.usca.edu/" target="_blank">USC Aiken Blackboard</a></li>
-            <li>Web Development Assignment Link: <a href="https://blackboard.sc.edu/ultra/courses/_1221971_1/cl/outline"
-                    target="_blank">Blackboard CSCI225</a></li>
-            <li>USC Aiken Email: <a href="https://outlook.office365.com/" target="_blank">USC Aiken Email</a></li>
-            <li>USC Aiken E-Sports: <a href="https://www.usca.edu/campus-recreation-and-wellness/club-sports/esports"
-                    target="_blank">USC Aiken E-Sports</a></li>
-            <li>USC Aiken Black Student Union(BSU): <a href="https://www.facebook.com/uscabsu/" target="_blank">USC
-                    Aiken BSU</a></li>
+            <li><a href="https://www.usca.edu/" target="_blank">USC Aiken Homepage</a></li>
+            <li><a href="http://blackboard.usca.edu/" target="_blank">USC Aiken Blackboard</a></li>
+            <li><a href="https://blackboard.sc.edu/ultra/courses/_1221971_1/cl/outline" target="_blank">Web Development
+                    Assignment</a></li>
+            <li><a href="https://outlook.office365.com/" target="_blank">USC Aiken Email</a></li>
+            <li><a href="https://www.usca.edu/campus-recreation-and-wellness/club-sports/esports" target="_blank">USC
+                    Aiken E-Sports</a></li>
+            <li><a href="https://www.facebook.com/uscabsu/" target="_blank">USC Aiken Black Student Union (BSU)</a>
+            </li>
         </ul>
     </div>
 
     <div class="Introduction">
-        <h1> Introduction</h1>
-        <img src="img/MefromDestin.jpg" alt="Me From Destin" width="250" height="250">
-        <p lang="en-us">Welcome to my website, My name is D'Andre Lambert, I'm 24 years old, fun fact! Every six years
-            my
-            birthday falls on Father's Day like it did this year!!&#128513; I am a Junior at USC Aiken majoring in
-            Cyber Security with a minor in Business. I'm a transfer student from Winthrop in Rock Hill and I started
-            attending this past Spring. I'm hoping by taking this class I will help broaden and strengthen my
-            understanding
-            of different forms of code to help with my aspirations in Cybersecurity. Plus it would be nice to meet some
-            cool people along the way too &#128514;</p>
+        <h2>About Me</h2>
+        <img src="img/MefromDestin.jpg" alt="Me From Destin">
+        <p>Welcome to my blog! I'm D'Andre Lambert, a 24-year-old Cyber Security major at USC Aiken. I transferred from
+            Winthrop in Rock Hill and started attending here this past Spring. I'm looking forward to broadening my
+            coding skills through this class and pursuing a career in Cybersecurity.</p>
     </div>
 
     <div class="Assignment">
@@ -65,26 +153,22 @@
                     target="_blank">CSCI225 Assign. 6</a></li>
         </ol>
     </div>
-
     <div class="Portfolio">
-        <h1>Portfolio</h1>
-        <p><b>
-                <h3>Technical Skills and Work Experience</h3><b></p>
+        <h2>My Portfolio</h2>
+        <p><b>Technical Skills and Experience</b></p>
         <ul>
             <li>HTML</li>
             <li>JavaScript</li>
             <li>Python</li>
-            <li>Former US Navy Intel Specialists</li>
+            <li>Former US Navy Intel Specialist</li>
         </ul>
-        <h2>Previous Projects</h2>
-        <p>While I do not have previous projects that have tested my knowledge in programming, I have several years of
-            experience in IT, including the ability to repair cracked smartphones and design, build, modify, repair and
-            reset consoles, PC's and Laptops.</p>
+        <h3>Previous Projects</h3>
+        <p>I have experience in repairing cracked smartphones and working on consoles, PC's, and Laptops.</p>
     </div>
 
     <div class="address">
-        <p>Contact information</p>
-        <ul><a href="dandrel@usca.edu">School Email</a></ul>
+        <h2>Contact Information</h2>
+        <ul><a href="mailto:dandrel@usca.edu">School Email</a></ul>
         <ul><a href="https://twitter.com/DocPepperJack">Follow me on Twitter!</a></ul>
         <ul><a href="file:///Users/DrPepperjack/CSCI225/CSCI225/CSCI225-1/ContactMe.html" target="_blank">Contact Me
                 Page</a></ul>
@@ -143,7 +227,6 @@
             </tr>
         </table>
     </div>
-
     <footer>
         <p>©2023 Lambert</p>
     </footer>
