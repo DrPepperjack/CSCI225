@@ -1,36 +1,35 @@
-/* styles.css */
+:root {
+    --navbar-color: #4F75A2;
+    --navbar-border-color: #43658d;
+    --navbar-hover-color: #8CADD5;
+    --header-color: #8FB2D5;
+    --body-color: #d8e3ed;
+    --textbox-color: #F1F8C8;
+    --textbox-hover: #99BADA;
+    --calculate-hover: #316286;
+}
+
+html {
+    -webkit-locale: "en-us";
+    display: block;
+}
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('<Estate.jpg>'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
-    background-size: cover; /* This ensures that the background image covers the entire viewport */
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1em;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav li {
-    display: inline;
-    margin-right: 20px;
-}
-
-main {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
+    border: 5px solid #0074d9;
+    background-image: url('../img/Estate.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #d8e3ed; 
 }
 
-#loanCalculator {
-    margin-top: 20px;
+header  {
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 label {
@@ -39,17 +38,82 @@ label {
 }
 
 input {
-    margin-bottom: 10px;
+    width: 100%;
     padding: 5px;
+    margin-bottom: 10px;
+    background-color: #f0f0f0;
+}
+
+.calculator {
+    float: left;
 }
 
 button {
-    padding: 8px;
-    background-color: #333;
+    background-color: var(--calculate-hover); /* Changed to use the variable */
     color: #fff;
+    padding: 10px 20px;
+    border: none;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #555;
+#result {
+    margin-top: 20px;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-bar {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(79, 117, 162, 0.7);
+}
+
+.nav-items td {
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#results {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* White with 0.8 opacity */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#results th,
+#results td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    color: black; /* Ensure text color is readable against the white background */
+}
+
+

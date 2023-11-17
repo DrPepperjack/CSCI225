@@ -1,40 +1,106 @@
-// calculateLoan.js
+$("#calcBtn").on("click", function(){
+    document.getElementById("aTable").style.visibility = "visible";
+});
+$("#calcBtn").on("click", function(){
+    document.getElementById("pResult").style.visibility = "visible";
+});
+$("#calcBtn").on("click", function() {
+    //collects user input and assigns it to variables
+    var displayOption = $("#display").val();
+    var amount = parseFloat($("#loanAmnt").val());
+    var interest = parseFloat($("#intRate").val()) / 100;
+    var termInYears = parseInt($("#loanTerm").val());
+    var sMonth = parseInt($("#startMonth").val());
+    var sYear = parseInt($("#startYear").val());
+    //console.log(amount, interest, termInYears, sMonth, sYear);
 
-function calculateLoan() {
-    // Read inputs
-    let loanAmount = parseFloat(document.getElementById('loanAmount').value);
-    let interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
-    let loanTerm = parseInt(document.getElementById('loanTerm').value);
-    let startYear = parseInt(document.getElementById('startYear').value);
+    //calculates monthly interest
+    var monInt = interest / 12;
+    //console.log(monInt);
 
-    // Validate inputs
-    if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanTerm) || isNaN(startYear)) {
-        alert('Please enter valid numerical values.');
-        return;
-    }
+    //calculates monthly payment and displays on the page
+    var termInMonths = termInYears * 12;
+    var monPay = ((amount * monInt) / (1 - Math.pow((1 + monInt), -termInMonths))).toFixed(2);
+    //console.log(monPay);
+    $("#monPayment").text("$" + monPay);
 
-    // Calculate monthly payment
-    let monthlyRate = Math.pow(1 + interestRate, loanTerm * 12);
-    let monthlyPayment = (loanAmount * monthlyRate * interestRate) / (monthlyRate - 1);
+    //creates variables for the table and clears the table
+    var newBal = amount;
+    var aTable = $("#aTable tbody");
+    aTable.empty();
 
-    // Generate and display amortization schedule
-    let results = document.getElementById('results');
-    results.innerHTML = '<h3>Amortization Schedule</h3>';
-    results.innerHTML += '<table border="1">';
-    results.innerHTML += '<tr><th>Year</th><th>Month</th><th>Interest</th><th>Principal</th><th>Balance</th></tr>';
+    //calculates loan payment schedule for month if user selects monthly option
+    if (displayOption === "0") {
+        for (var i = sYear; i < sYear + termInYears; i++) {
+            for (var j = (i === sYear ? sMonth : 1); j <= 12; j++) {
+                var paidInt = (newBal * monInt).toFixed(2);
+                var paidPrin = (monPay - paidInt).toFixed(2);
+                newBal -= paidPrin;
 
-    let loanBalance = loanAmount;
+                var row = "<tr><td>$" + (j < 10 ? "0" + j : j) + "-" + i + "</td><td>$" + paidInt + "</td><td>$" + paidPrin + "</td><td>$" + newBal.toFixed(2) + "</td></tr>";
+                aTable.append(row);
+            }
+        }
+    //calculates loan payment schedule for year if user selects yearly option
+    } else if (displayOption === "1") {
+        for (var i = sYear; i < sYear + termInYears; i++) {
+            var paidIntYearly = 0;
+            var paidPrinYearly = 0;
+            for (var j = (i === sYear ? sMonth : 1); j <= 12; j++) {
+                var paidInt = (newBal * monInt).toFixed(2);
+                var paidPrin = (monPay - paidInt).toFixed(2);
+                newBal -= paidPrin;
 
-    for (let year = 0; year < 10; year++) {
-        for (let month = 1; month <= 12; month++) {
-            let monthNumber = year * 12 + month;
-            let monthlyInterest = loanBalance * interestRate;
-            let principalPaid = monthlyPayment - monthlyInterest;
-            loanBalance -= principalPaid;
-
-            results.innerHTML += `<tr><td>${startYear + year}</td><td>${monthNumber}</td><td>${monthlyInterest.toFixed(2)}</td><td>${principalPaid.toFixed(2)}</td><td>${loanBalance.toFixed(2)}</td></tr>`;
+                paidIntYearly = (parseFloat(paidIntYearly) + parseFloat(paidInt)).toFixed(2);
+                paidPrinYearly = (parseFloat(paidPrinYearly) + parseFloat(paidPrin)).toFixed(2);
+            }
+            var row = "<tr><td>" + i + "</td><td>$" + paidIntYearly + "</td><td>$" + paidPrinYearly + "</td><td>$" + newBal.toFixed(2) + "</td></tr>";
+            aTable.append(row);
         }
     }
+});
 
-    results.innerHTML += '</table>';
-}
+//adds style to table
+var input1 = document.getElementById("loanAmnt");
+
+input1.addEventListener('input', event => {
+    if(input1.value === ''){
+        input1.style.backgroundColor ='#FFFFFF';
+    }else{
+        input1.style.backgroundColor ='#F1F8C8';
+    }
+})
+
+var input2 = document.getElementById("intRate");
+input2.addEventListener('input', event => {
+    if(input2.value === ''){
+        input2.style.backgroundColor ='#FFFFFF';
+    }else{
+        input2.style.backgroundColor ='#F1F8C8';
+    }
+})
+
+var input3 = document.getElementById("loanTerm");
+input3.addEventListener('input', event => {
+    if(input3.value === ''){
+        input3.style.backgroundColor ='#FFFFFF';
+    }else{
+        input3.style.backgroundColor ='#F1F8C8';
+    }
+})
+
+//shows calculator when clicked
+$("#item3").on("click", function() {
+    var calculatorElement = document.getElementById("calculator");
+    var results=document.getElementById("aTable");
+    var monthlyPayment=document.getElementById("pResult");
+    
+    calculatorElement.style.visibility = "visible";
+
+    if(results.style.visibility === "visible"){
+        results.style.visibility = "hidden";
+    }
+    if(monthlyPayment.style.visibility === "visible"){
+        monthlyPayment.style.visibility = "hidden";
+    }
+});

@@ -5,98 +5,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Company</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="calculateLoan.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 5px solid #0074d9;
-            background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
-            background-size: cover;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 10px;
-            background-color: #f0f0f0;
-        }
-
-        .calculator {
-            float: left;
-        }
-
-        button {
-            background-color: #0074d9;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        #result {
-            margin-top: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Include necessary libraries -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="js/loancalculator.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>CSRA Real Estate Company</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Properties</a></li>
-                <li><a href="realestate.html">Loan Calculator</a></li>
-            </ul>
-        </nav>
+        <div class="navbar">
+            <table class="nav-bar">
+                <tr class="nav-items">
+                    <td class="item1">Buy</td>
+                    <td class="item2">Sell</td>
+                    <td class="item3">Loan</td>
+                    <td class="item4">About</td>
+                </tr>
+            </table>
+        </div>
     </header>
 
     <!-- Loan Calculator Section -->
-    <section id="loanCalculator" class="calculator">
-        <h2>Loan Calculator</h2>
-        <form id="calculatorForm">
-            <label for="loanAmount">Loan Amount:</label>
-            <input type="number" id="loanAmount" required>
+    <section class="calculator">
+        <h4>Loan Information</h4>
+        <form action="" name="calculator">
+            <div class="form-group" id="one">
+                <label for="loanAmnt">Loan Amount: </label>
+                <input type="text" class="form-control form-control-sm" id="loanAmnt" placeholder="Enter Loan Value">
+                <label for="loanAmnt">$</label>
+            </div>
 
-            <label for="interestRate">Interest Rate (annual):</label>
-            <input type="number" id="interestRate" step="0.01" required>
+            <div class="form-group" id="two">
+                <label for="intRate">Interest Rate: </label>
+                <input type="text" class="form-control form-control-sm" id="intRate" placeholder="Enter Interest Rate">
+            </div>
 
-            <label for="loanTerm">Loan Term (in Years):</label>
-            <input type="number" id="loanTerm" required>
+            <div class="form-group" id="three">
+                <label for="loanTerm">Loan Length in Years: </label>
+                <input type="text" class="form-control form-control-sm" id="loanTerm" placeholder="Enter Loan Term">
+            </div>
 
-            <label for="startYear">Start Year:</label>
-            <input type="number" id="startYear" required>
+            <div class="form-group" id="four">
+                <label for="startMonth">Start Date of Loan: </label>
+                <input type="number" class="form-control form-control-sm" id="startYear" placeholder="Enter Start Year"
+                    required>
+            </div>
 
-            <button type="button" onclick="calculateLoan()">Calculate</button>
+            <div class="form-group" id="five">
+                <label for="display">Show results by: </label>
+                <select class="form-control form-control-sm" id="display">
+                    <option value="0">Monthly</option>
+                    <option value="1">Yearly</option>
+                </select>
+            </div>
         </form>
-
-        <div id="result"></div>
+        <button type="button" class="button" id="calcBtn" onclick="calculateLoan()">Calculate</button>
     </section>
-</body>
 
+    <div class="results" id="results">
+        <table id="aTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Interest</th>
+                    <th>Principal</th>
+                    <th>Balance</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="pResult" id="pResult">
+        <p>Monthly Payment: <span id="monPayment"></span></p>
+    </div>
+</body>
+<script src="js/calculateLoan.js"></script>
 </html>
