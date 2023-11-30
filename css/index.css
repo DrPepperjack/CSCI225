@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Kdam+Thmor+Pro');
 /* Reset default margin and padding for all elements */
 body {
     font-family: Arial, sans-serif;
@@ -131,10 +130,9 @@ a:hover {
     padding-right: 1%;
     left: 0px;
     height: 95vh;
-    background-color: var(--side-color);
     z-index: 1;
     border-right: solid 1px;
-    border-image: linear-gradient(to bottom,var(--side-color) 3%, black 5% 95%, var(--side-color) 97% ) 1 100%;
+    border-image: linear-gradient(to bottom, 3%, black 5% 95%, 97% ) 1 100%;
 }
 
 /* Assignment section styles */
