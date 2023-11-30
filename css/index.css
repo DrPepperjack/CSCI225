@@ -114,6 +114,7 @@ ul {
     position: relative;
     margin-top: 70px;
     padding: 20px;
+    background-color: color-mix(in hsl longer hue, blue 10%, red 15%);
 }
 
 /* Address section styles */
