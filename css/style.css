@@ -84,13 +84,13 @@ td {
     justify-content: flex-start;
 }
 
-.nav-bar {
+.navbar {
     padding: 10px;
     border-radius: 5px;
     background-color: rgba(79, 117, 162, 0.7);
 }
 
-.nav-items td {
+.navitems td {
     color: white;
     padding: 5px 10px;
     cursor: pointer;
@@ -116,4 +116,13 @@ td {
     color: black; /* Ensure text color is readable against the white background */
 }
 
+.Schedule{
+    position: relative;
+    bottom: 150px;
+    left: 75px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* White with 0.8 opacity */
+    padding: 10px;
+    border-radius: 5px;
+}
 
